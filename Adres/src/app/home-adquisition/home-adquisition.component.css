@@ -11,11 +11,19 @@
 
 /* Estilos para el botón */
 .btn-primary {
-  background-color: #5068b2;
-  border-color: #5068b2;
+  background-color: #7be3e6;
+  border-color: #7be3e6;
+  color:#283557;
 }
 
 .btn-primary:hover {
-  background-color: #405080;
-  border-color: #405080;
+  background-color: #0ed7b1;
+  border-color: #0ed7b1;
+
 }
+
+.action{
+  align-items: center;
+}
+
+
