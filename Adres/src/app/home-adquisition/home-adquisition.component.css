@@ -1,0 +1,21 @@
+.title {
+  color: #283557;
+}
+
+/* Estilos para el encabezado de la tabla */
+.table thead th {
+  background-color: #5068b2;
+  color: white;
+  text-align: center;
+}
+
+/* Estilos para el botón */
+.btn-primary {
+  background-color: #5068b2;
+  border-color: #5068b2;
+}
+
+.btn-primary:hover {
+  background-color: #405080;
+  border-color: #405080;
+}
