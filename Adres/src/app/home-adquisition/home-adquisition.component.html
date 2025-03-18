@@ -53,6 +53,11 @@
           </button>
         </td>
       </tr>
+      @for(adquisicion of adquisiciones; track adquisicion.id){
+        <tr >
+          <td>{{ adquisicion.presupuesto }}</td>
+        </tr>
+      }
       <!-- Agrega más filas según sea necesario -->
     </tbody>
   </table>
