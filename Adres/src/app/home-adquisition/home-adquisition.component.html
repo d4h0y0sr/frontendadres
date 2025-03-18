@@ -56,6 +56,24 @@
       @for(adquisicion of adquisiciones; track adquisicion.id){
         <tr >
           <td>{{ adquisicion.presupuesto }}</td>
+          <td>{{ adquisicion.unidad }}</td>
+          <td>{{ adquisicion.tipodeBien }}</td>
+          <td>{{ adquisicion.cantidad }}</td>
+          <td>{{ adquisicion.valorUnitario }}</td>
+          <td>{{ adquisicion.valorTotal }}</td>
+          <td>{{ adquisicion.fechaAdquisicion }}</td>
+          <td>{{ adquisicion.proveedor }}</td>
+          <td>{{ adquisicion.documentacion }}</td>
+          <td>
+            <button class="btn btn-sm btn-warning me-2 action" title="Editar">
+              <i class="bi bi-pencil"></i>
+            </button>
+            <button class="btn btn-sm btn-info me-2 action" title="Ver Historial">
+              <i class="bi bi-clock-history"></i>
+            </button>
+            <button class="btn btn-sm btn-danger me-2 action" title="Eliminar">
+              <i class="bi bi-trash"></i>
+            </button>
         </tr>
       }
       <!-- Agrega más filas según sea necesario -->

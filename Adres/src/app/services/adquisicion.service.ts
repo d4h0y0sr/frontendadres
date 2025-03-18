@@ -8,7 +8,7 @@ export interface Adquisicion {
   unidad: string;
   tipodeBien: string;
   cantidad: number;
-  valorUitario: number;
+  valorUnitario: number;
   valorTotal: number;
   fechaAdquisicion: string;
   proveedor: string;
@@ -20,7 +20,7 @@ export interface Adquisicion {
 })
 export class AdquisicionService {
 
-  private apiUrl = 'localhost:3001/api/adquisiciones';
+  private apiUrl = '/api/adquisiciones';
 
   constructor(private http: HttpClient) { }
 
