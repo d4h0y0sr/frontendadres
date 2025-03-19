@@ -34,7 +34,12 @@ export class AdquisicionService {
   }
 
   editarAdquisicion(adquisicion: any): Observable<void> {
+    console.log("EDITO ADQUISICION ENDPOINT")
     return this.http.put<void>(`${this.apiUrl}/${adquisicion.id}`, adquisicion);
+  }
+
+  eliminarAdquisicion(id: number): Observable<void> {
+    return this.http.patch<void>(`${this.apiUrl}/${id}/desactivar`, {});
   }
 
 }

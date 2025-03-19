@@ -49,4 +49,17 @@ export class HomeAdquisitionComponent {
     this.getAdquisiciones();
   }
 
+  eliminarAdquisicion(adquisicion: Adquisicion): void {
+    if (confirm('¿Estás seguro de que deseas desactivar esta adquisición?')) {
+      this.adquisicionService.eliminarAdquisicion(adquisicion.id).subscribe({
+        next: () => {
+          this.actualizarTabla(); // Actualiza la tabla después de desactivar
+        },
+        error: (error) => {
+          console.error('Error al desactivar la adquisición:', error);
+        }
+      });
+    }
+  }
+
 }
