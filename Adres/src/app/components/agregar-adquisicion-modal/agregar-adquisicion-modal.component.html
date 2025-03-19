@@ -1,0 +1,72 @@
+<div class="modal-header">
+  <h5 class="modal-title">Agregar Adquisición</h5>
+  <button type="button" class="btn-close" (click)="cerrarModal()"></button>
+</div>
+<div class="modal-body">
+  <form>
+    <div class="row">
+      <!-- Columna izquierda -->
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="presupuesto" class="form-label">Presupuesto</label>
+          <input type="number" class="form-control dolar" id="presupuesto"
+          [(ngModel)]="nuevaAdquisicion.presupuesto" name="presupuesto" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="unidad" class="form-label">Unidad</label>
+          <input type="text" class="form-control" id="unidad" [(ngModel)]="nuevaAdquisicion.unidad" name="unidad" required>
+        </div>
+        <div class="mb-3">
+          <label for="tipodeBien" class="form-label">Tipo de Bien</label>
+          <select class="form-select" id="tipodeBien" [(ngModel)]="nuevaAdquisicion.tipoDeBien" name="tipodeBien" required>
+            <option value="servicio">Servicio</option>
+            <option value="producto">Producto</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="cantidad" class="form-label">Cantidad</label>
+          <input type="number" class="form-control" id="cantidad"
+          [(ngModel)]="nuevaAdquisicion.cantidad" name="cantidad" required
+          (input)="calcularValorTotal()"
+          >
+        </div>
+      </div>
+
+      <!-- Columna derecha -->
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="valorUnitario" class="form-label">Valor Unitario</label>
+          <input type="number" class="form-control" id="valorUnitario"
+          [(ngModel)]="nuevaAdquisicion.valorUnitario" name="valorUnitario" required
+          (input)="calcularValorTotal()"
+          >
+        </div>
+        <div class="mb-3">
+          <label for="valorTotal" class="form-label">Valor Total</label>
+          <input type="number" class="form-control" id="valorTotal"
+          [(ngModel)]="nuevaAdquisicion.valorTotal" name="valorTotal" required
+          disabled
+          >
+        </div>
+        <div class="mb-3">
+          <label for="fechaAdquisicion" class="form-label">Fecha de Adquisición</label>
+          <input type="date" class="form-control" id="fechaAdquisicion" [(ngModel)]="nuevaAdquisicion.fechaAdquisicion" name="fechaAdquisicion" required>
+        </div>
+        <div class="mb-3">
+          <label for="proveedor" class="form-label">Proveedor</label>
+          <input type="text" class="form-control" id="proveedor" [(ngModel)]="nuevaAdquisicion.proveedor" name="proveedor" required>
+        </div>
+        <div class="mb-3">
+          <label for="documentacion" class="form-label">Documentación</label>
+          <textarea class="form-control" id="documentacion" [(ngModel)]="nuevaAdquisicion.documentacion" name="documentacion" rows="3"></textarea>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <div class="d-flex justify-content-end">
+    <button type="submit" class="btn btn-primary" (click)="onSubmit()">Guardar</button>
+    <button type="submit" class="btn btn-primary" (click)="cerrarModal()">Cancelar</button>
+  </div>
+</div>

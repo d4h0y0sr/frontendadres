@@ -1,0 +1,37 @@
+.mb-3 {
+  margin-bottom: 0.3rem !important;
+}
+
+.modal-header {
+  padding: 1%;
+  color: #283557;
+}
+
+.modal-body{
+  padding: 2%;
+  color: #283557;
+}
+
+.form-label {
+  margin-bottom: .3rem;
+  font-size: 75%;
+  font-weight: bold;
+}
+
+.form-control{
+  padding: .3rem .75rem;
+  font-size: small;
+}
+
+.prefix {
+  margin-right: -10px;
+  position: absolute;
+}
+
+.dolar:before {
+  content: '$';
+  position: absolute;
+  top: 0;
+  left: 40px;
+  z-index: 1;
+}
