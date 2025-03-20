@@ -3,33 +3,47 @@
   <button type="button" class="btn-close" (click)="cerrarModal()"></button>
 </div>
 <div class="modal-body">
-  <form>
+  <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
     <div class="row">
       <!-- Columna izquierda -->
       <div class="col-md-6">
         <div class="mb-3">
           <label for="presupuesto" class="form-label">Presupuesto</label>
-          <input type="number" class="form-control dolar" id="presupuesto"
-          [(ngModel)]="nuevaAdquisicion.presupuesto" name="presupuesto" required>
+          <input type="number" class="form-control" id="presupuesto" formControlName="presupuesto">
+          <div *ngIf="formulario.get('presupuesto')?.invalid && formulario.get('presupuesto')?.touched" class="text-danger">
+            El presupuesto es requerido y debe ser mayor o igual a 0.
+          </div>
         </div>
-
         <div class="mb-3">
           <label for="unidad" class="form-label">Unidad</label>
-          <input type="text" class="form-control" id="unidad" [(ngModel)]="nuevaAdquisicion.unidad" name="unidad" required>
+          <input type="text" class="form-control" id="unidad" formControlName="unidad">
+          <div *ngIf="formulario.get('unidad')?.invalid && formulario.get('unidad')?.touched" class="text-danger">
+            La unidad es requerida.
+          </div>
         </div>
         <div class="mb-3">
-          <label for="tipodeBien" class="form-label">Tipo de Bien</label>
-          <select class="form-select" id="tipodeBien" [(ngModel)]="nuevaAdquisicion.tipoDeBien" name="tipodeBien" required>
+          <label for="tipoDeBien" class="form-label">Tipo de Bien</label>
+          <select class="form-select" id="tipoDeBien" formControlName="tipoDeBien">
             <option value="servicio">Servicio</option>
             <option value="producto">Producto</option>
           </select>
+          <div *ngIf="formulario.get('tipoDeBien')?.invalid && formulario.get('tipoDeBien')?.touched" class="text-danger">
+            El tipo de bien es requerido.
+          </div>
         </div>
         <div class="mb-3">
           <label for="cantidad" class="form-label">Cantidad</label>
-          <input type="number" class="form-control" id="cantidad"
-          [(ngModel)]="nuevaAdquisicion.cantidad" name="cantidad" required
-          (input)="calcularValorTotal()"
-          >
+          <input type="number" class="form-control" id="cantidad" formControlName="cantidad">
+          <div *ngIf="formulario.get('cantidad')?.invalid && formulario.get('cantidad')?.touched" class="text-danger">
+            La cantidad es requerida y debe ser mayor o igual a 0.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="documentacion" class="form-label">Documentación</label>
+          <textarea class="form-control" id="documentacion" formControlName="documentacion" rows="3"></textarea>
+          <div *ngIf="formulario.get('documentacion')?.invalid && formulario.get('documentacion')?.touched" class="text-danger">
+            La documentación es requerida.
+          </div>
         </div>
       </div>
 
@@ -37,36 +51,38 @@
       <div class="col-md-6">
         <div class="mb-3">
           <label for="valorUnitario" class="form-label">Valor Unitario</label>
-          <input type="number" class="form-control" id="valorUnitario"
-          [(ngModel)]="nuevaAdquisicion.valorUnitario" name="valorUnitario" required
-          (input)="calcularValorTotal()"
-          >
+          <input type="number" class="form-control" id="valorUnitario" formControlName="valorUnitario">
+          <div *ngIf="formulario.get('valorUnitario')?.invalid && formulario.get('valorUnitario')?.touched" class="text-danger">
+            El valor unitario es requerido y debe ser mayor o igual a 0.
+          </div>
         </div>
         <div class="mb-3">
           <label for="valorTotal" class="form-label">Valor Total</label>
-          <input type="number" class="form-control" id="valorTotal"
-          [(ngModel)]="nuevaAdquisicion.valorTotal" name="valorTotal" required
-          disabled
-          >
+          <input type="number" class="form-control" id="valorTotal" formControlName="valorTotal">
+          <div *ngIf="formulario.get('valorTotal')?.invalid && formulario.get('valorTotal')?.touched" class="text-danger">
+            El valor total es requerido y debe ser mayor o igual a 0.
+          </div>
         </div>
         <div class="mb-3">
           <label for="fechaAdquisicion" class="form-label">Fecha de Adquisición</label>
-          <input type="date" class="form-control" id="fechaAdquisicion" [(ngModel)]="nuevaAdquisicion.fechaAdquisicion" name="fechaAdquisicion" required>
+          <input type="date" class="form-control" id="fechaAdquisicion" formControlName="fechaAdquisicion">
+          <div *ngIf="formulario.get('fechaAdquisicion')?.invalid && formulario.get('fechaAdquisicion')?.touched" class="text-danger">
+            La fecha de adquisición es requerida.
+          </div>
         </div>
         <div class="mb-3">
           <label for="proveedor" class="form-label">Proveedor</label>
-          <input type="text" class="form-control" id="proveedor" [(ngModel)]="nuevaAdquisicion.proveedor" name="proveedor" required>
-        </div>
-        <div class="mb-3">
-          <label for="documentacion" class="form-label">Documentación</label>
-          <textarea class="form-control" id="documentacion" [(ngModel)]="nuevaAdquisicion.documentacion" name="documentacion" rows="3"></textarea>
+          <input type="text" class="form-control" id="proveedor" formControlName="proveedor">
+          <div *ngIf="formulario.get('proveedor')?.invalid && formulario.get('proveedor')?.touched" class="text-danger">
+            El proveedor es requerido.
+          </div>
         </div>
       </div>
     </div>
-  </form>
 
-  <div class="d-flex justify-content-end">
-    <button type="submit" class="btn btn-primary" (click)="onSubmit()">Guardar</button>
-    <button type="submit" class="btn btn-primary" (click)="cerrarModal()">Cancelar</button>
-  </div>
+      <div class="d-flex justify-content-end gap-3">
+        <button type="submit" class="btn btn-agregar" [disabled]="formulario.invalid" (click)="onSubmit()">Guardar</button>
+        <button type="submit" class="btn btn-cerrar" (click)="cerrarModal()">Cancelar</button>
+      </div>
+  </form>
 </div>

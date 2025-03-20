@@ -1,46 +1,95 @@
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1050;
-  display: none; /* Ocultar por defecto */
-}
-
-.modal-dialog {
-  margin: 10% auto;
-  max-width: 500px;
-}
-
+/* Estilos generales del modal */
 .modal-content {
-  background-color: #fff;
-  border-radius: 5px;
+  background-color: white; /* Fondo blanco */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
+/* Encabezado del modal */
 .modal-header {
-  padding: 15px;
-  border-bottom: 1px solid #e9ecef;
+  border-bottom: 1px solid #e0e0e0; /* Línea gris separadora */
+  padding: 16px;
 }
 
-.modal-body {
-  padding: 15px;
+.modal-title {
+  color: #283557; /* Color del título */
+  font-size: 18px;
+  font-weight: bold;
 }
 
-.modal-footer {
-  padding: 15px;
-  border-top: 1px solid #e9ecef;
-  text-align: right;
+/* Botón de cerrar */
+.close {
+  color: white; /* Letras blancas */
+  background-color: #5068b2; /* Fondo azul */
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
 }
 
-.modal-backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
+.close:hover {
+  opacity: 0.8; /* Efecto hover */
+}
+
+/* Tabla principal */
+.table {
   width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1040;
-  display: none; /* Ocultar por defecto */
+  margin-bottom: 0;
+}
+
+.table thead th {
+  background-color: #5068b2; /* Fondo azul */
+  color: white; /* Letras blancas */
+  font-weight: bold;
+  padding: 12px;
+}
+
+.table tbody td {
+  color: #283557; /* Letras azul oscuro */
+  padding: 12px;
+}
+
+/* Subtables */
+.subtable {
+  margin-bottom: 0;
+}
+
+.subtable thead th {
+  background-color: #7be3e6; /* Fondo celeste */
+  color: #5068b2; /* Letras azul */
+  font-weight: bold;
+  padding: 8px;
+}
+
+.subtable tbody td {
+  background-color: #f8f9fa; /* Fondo gris suave */
+  color: #283557; /* Letras azul oscuro */
+  padding: 8px;
+}
+
+.subtable tbody td.nuevo-valor {
+  color: #0ed7b1; /* Letras verde azulado */
+}
+
+/* Pie del modal */
+.modal-footer {
+  border-top: 1px solid #e0e0e0; /* Línea gris separadora */
+  padding: 16px;
+}
+
+.btn-cerrar {
+  background-color: #5068b2; /* Fondo azul */
+  color: white; /* Letras blancas */
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-weight: bold;
+}
+
+.btn-cerrar:hover {
+  background-color: #405080; /* Efecto hover */
 }
