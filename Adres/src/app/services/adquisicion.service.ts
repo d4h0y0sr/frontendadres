@@ -42,4 +42,9 @@ export class AdquisicionService {
     return this.http.patch<void>(`${this.apiUrl}/${id}/desactivar`, {});
   }
 
+  obtenerHistorial(idAdquisicion: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/${idAdquisicion}/Historial`);
+  }
+
+
 }

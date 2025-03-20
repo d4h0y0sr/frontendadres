@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component,ViewChild } from '@angular/core';
 import { AgregarAdquisicionModalComponent } from '../components/agregar-adquisicion-modal/agregar-adquisicion-modal.component';
+import { HistorialModalComponent } from '../components/historial-modal/historial-modal.component';
 
 import {
   AdquisicionService,
@@ -7,13 +8,14 @@ import {
 } from '../services/adquisicion.service';
 @Component({
   selector: 'app-home-adquisition',
-  imports: [AgregarAdquisicionModalComponent],
+  imports: [AgregarAdquisicionModalComponent,HistorialModalComponent],
   templateUrl: './home-adquisition.component.html',
   styleUrl: './home-adquisition.component.css',
 })
 export class HomeAdquisitionComponent {
   adquisiciones: Adquisicion[] = [];
   adquisicionEditada: any = null;
+  @ViewChild(HistorialModalComponent) historialModal!: HistorialModalComponent;
 
   constructor(private adquisicionService: AdquisicionService) {}
 
@@ -60,6 +62,10 @@ export class HomeAdquisitionComponent {
         }
       });
     }
+  }
+
+  abrirHistorial(idAdquisicion: number): void {
+    this.historialModal.abrirModal(idAdquisicion); // Abre el modal de historial
   }
 
 }
