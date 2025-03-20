@@ -32,28 +32,6 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>$10.000 millones</td>
-        <td>Dirección de Medicamentos y Tecnologías en Salud</td>
-        <td>Medicamentos</td>
-        <td>10.000 unidades</td>
-        <td>$1.000</td>
-        <td>$10.000.000</td>
-        <td>20 de julio de 2023</td>
-        <td>Laboratorios Bayer S.A.</td>
-        <td>Orden de compra No. 2023-07-20-001, factura No. 2023-07-20-001</td>
-        <td>
-          <button class="btn btn-sm btn-warning me-2 action" title="Editar">
-            <i class="bi bi-pencil"></i>
-          </button>
-          <button class="btn btn-sm btn-info me-2 action" title="Ver Historial">
-            <i class="bi bi-clock-history"></i>
-          </button>
-          <button class="btn btn-sm btn-danger me-2 action" title="Eliminar">
-            <i class="bi bi-trash"></i>
-          </button>
-        </td>
-      </tr>
       @for(adquisicion of adquisiciones; track adquisicion.id){
       <tr>
         <td>{{ adquisicion.presupuesto }}</td>
